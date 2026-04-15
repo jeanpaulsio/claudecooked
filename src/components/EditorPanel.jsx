@@ -4,8 +4,26 @@ export default function EditorPanel({ state, onChange, onDownload, onReset }) {
   return (
     <aside className="editor-panel">
       <div className="brand">
-        <div className="logo">
-          claude<span>cooked</span>
+        <div className="brand-head">
+          <div className="logo">
+            claude<span>cooked</span>
+          </div>
+          <a
+            className="brand-link"
+            href="https://www.instagram.com/claudecooked/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Visit @claudecooked on Instagram"
+            title="@claudecooked on Instagram"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.93 1.35a1.07 1.07 0 1 1 0 2.14 1.07 1.07 0 0 1 0-2.14ZM12 6.86A5.14 5.14 0 1 1 6.86 12 5.15 5.15 0 0 1 12 6.86Zm0 1.8A3.34 3.34 0 1 0 15.34 12 3.35 3.35 0 0 0 12 8.66Z" />
+            </svg>
+          </a>
         </div>
         <p className="subcopy">git blame claude</p>
       </div>
