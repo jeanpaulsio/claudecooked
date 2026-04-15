@@ -1,5 +1,9 @@
 export const EXPORT_SIZE = 1080;
 export const EMPTY_TEXT = "\u00A0";
+export const CHAT_COPY_MAX_WIDTH = 760;
+export const USER_COPY_MAX_HEIGHT = 220;
+export const CLAUDE_COPY_MAX_HEIGHT = 360;
+export const TRUNCATION_MARK = "...";
 
 export const DEFAULTS = Object.freeze({
   userText: "our landing page looks like generic ai drivel",

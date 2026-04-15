@@ -67,7 +67,7 @@ body::before {
 .brand {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0;
 }
 
 .logo {
@@ -75,6 +75,7 @@ body::before {
   font-size: 1.72rem;
   font-weight: 800;
   letter-spacing: -0.04em;
+  line-height: 0.94;
 }
 
 .logo span {
@@ -84,8 +85,9 @@ body::before {
 .subcopy {
   max-width: 28ch;
   color: var(--muted);
-  line-height: 1.36;
+  line-height: 1;
   font-size: 0.82rem;
+  margin-top: -1px;
 }
 
 .editor-card {
@@ -97,6 +99,10 @@ body::before {
   border: 1px solid var(--border);
   border-radius: 16px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.editor-card:first-of-type {
+  padding-top: 26px;
 }
 
 .editor-section,
@@ -388,6 +394,7 @@ select.editor-input {
   flex-direction: column;
   width: auto;
   max-width: 920px;
+  max-height: 840px;
   min-width: 760px;
   background: var(--window-bg);
   border: 1px solid var(--window-border);
@@ -448,6 +455,7 @@ select.editor-input {
   gap: 30px;
   padding: 30px 34px 22px;
   background: var(--terminal-body-bg);
+  overflow: hidden;
 }
 
 .chat-block {
@@ -475,10 +483,19 @@ select.editor-input {
 .chat-copy {
   min-width: 0;
   max-width: 760px;
+  overflow: hidden;
   white-space: pre-wrap;
   word-break: break-word;
   line-height: 1.55;
   color: var(--terminal-text);
+}
+
+.chat-copy-user {
+  max-height: 220px;
+}
+
+.chat-copy-claude {
+  max-height: 360px;
 }
 
 .user-highlight {
@@ -541,19 +558,6 @@ select.editor-input {
   color: var(--watermark-text);
   font-weight: 700;
   white-space: nowrap;
-}
-
-.canvas-brand-lockup {
-  display: flex;
-  align-items: flex-end;
-  gap: 20px;
-}
-
-.canvas-mascot {
-  width: 112px;
-  height: auto;
-  flex: 0 0 auto;
-  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.18));
 }
 
 .canvas-wordmark {
@@ -647,17 +651,13 @@ select.editor-input {
     padding: 14px 14px 12px;
   }
 
-  .brand {
-    gap: 4px;
-  }
-
   .logo {
     font-size: 1.54rem;
   }
 
   .subcopy {
     font-size: 0.76rem;
-    line-height: 1.3;
+    line-height: 1;
   }
 
   .editor-card {
@@ -686,6 +686,10 @@ select.editor-input {
   .editor-textarea {
     max-height: none;
     overflow-y: hidden;
+  }
+
+  .editor-card:first-of-type {
+    padding-top: 12px;
   }
 
   .settings-grid,

@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useDeferredValue, useEffect, useRef, useState } from "react";
 import EditorPanel from "./components/EditorPanel";
 import TerminalCanvas from "./components/TerminalCanvas";
 import { usePreviewScale } from "./hooks/usePreviewScale";
+import { useTruncatedConversation } from "./hooks/useTruncatedConversation";
 import { DEFAULTS, EXPORT_SIZE } from "./lib/defaults";
 import { exportCanvas } from "./lib/exportCanvas";
 
@@ -13,6 +14,18 @@ export default function App() {
   const previewRef = useRef(null);
   const toastTimerRef = useRef(null);
   const scale = usePreviewScale(previewRef);
+  const deferredUserText = useDeferredValue(state.userText);
+  const deferredClaudeText = useDeferredValue(state.claudeText);
+  const truncatedText = useTruncatedConversation({
+    userText: deferredUserText,
+    claudeText: deferredClaudeText,
+    fontSize: state.fontSize,
+  });
+  const canvasState = {
+    ...state,
+    userText: truncatedText.userText,
+    claudeText: truncatedText.claudeText,
+  };
 
   useEffect(() => {
     return () => {
@@ -76,7 +89,7 @@ export default function App() {
               }}
             >
               <div className="preview-scaler" style={{ transform: `scale(${scale})` }}>
-                <TerminalCanvas {...state} />
+                <TerminalCanvas {...canvasState} />
               </div>
             </div>
           </div>
@@ -85,7 +98,7 @@ export default function App() {
 
       <div className="export-root" aria-hidden="true">
         <TerminalCanvas
-          {...state}
+          {...canvasState}
           frameRef={exportFrameRef}
           terminalWindowRef={exportTerminalWindowRef}
         />

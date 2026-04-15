@@ -1,5 +1,4 @@
 import { EMPTY_TEXT } from "../lib/defaults";
-import mascotSticker from "../../assets/mascot-sticker.png";
 
 const USER_MARK = "\u276F";
 const CLAUDE_MARK = "\u25CF";
@@ -36,16 +35,18 @@ export default function TerminalCanvas({
             </div>
 
             <div className="terminal-body">
-              <div className="chat-block" style={fontSizeStyle}>
+              <div className="chat-block chat-block-user" style={fontSizeStyle}>
                 <div className="chat-icon user">{USER_MARK}</div>
-                <div className="chat-copy">
+                <div className="chat-copy chat-copy-user">
                   <span className="user-highlight">{textOrPlaceholder(userText)}</span>
                 </div>
               </div>
 
-              <div className="chat-block" style={fontSizeStyle}>
+              <div className="chat-block chat-block-claude" style={fontSizeStyle}>
                 <div className="chat-icon claude">{CLAUDE_MARK}</div>
-                <div className="chat-copy">{textOrPlaceholder(claudeText)}</div>
+                <div className="chat-copy chat-copy-claude">
+                  {textOrPlaceholder(claudeText)}
+                </div>
               </div>
 
               <div className="composer">
@@ -63,16 +64,8 @@ export default function TerminalCanvas({
             </div>
           </div>
 
-          <div className="canvas-brand-lockup">
-            <img
-              className="canvas-mascot"
-              src={mascotSticker}
-              alt=""
-              aria-hidden="true"
-            />
-            <div className="canvas-wordmark">
-              @claude<span>cooked</span>
-            </div>
+          <div className="canvas-wordmark">
+            @claude<span>cooked</span>
           </div>
         </div>
       </div>
