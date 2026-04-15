@@ -722,6 +722,11 @@ select.editor-input {
     padding: 18px 16px 20px;
   }
 
+  .editor-textarea,
+  .editor-input {
+    font-size: 16px;
+  }
+
   .editor-textarea {
     max-height: none;
     overflow-y: hidden;
