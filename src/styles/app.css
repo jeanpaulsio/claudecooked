@@ -568,10 +568,20 @@ select.editor-input {
   line-height: 1;
 }
 
+.composer-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--terminal-text);
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
 .composer-caret {
   width: 15px;
   height: 28px;
   background: var(--caret);
+  flex: 0 0 auto;
 }
 
 .footer-bar {

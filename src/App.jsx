@@ -25,6 +25,7 @@ export default function App() {
     ...state,
     userText: truncatedText.userText,
     claudeText: truncatedText.claudeText,
+    composerText: state.composerText,
   };
 
   useEffect(() => {
