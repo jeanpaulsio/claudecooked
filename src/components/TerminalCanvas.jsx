@@ -12,6 +12,7 @@ export default function TerminalCanvas({
   terminalWindowRef,
   userText,
   claudeText,
+  composerText,
   fontSize,
   theme,
   titleText,
@@ -19,6 +20,8 @@ export default function TerminalCanvas({
   watermarkText,
 }) {
   const fontSizeStyle = { fontSize: `${fontSize}px` };
+  const hasUserText = Boolean(userText);
+  const hasComposerText = Boolean(composerText);
 
   return (
     <div className={`terminal-frame theme-${theme}`} ref={frameRef}>
@@ -35,12 +38,14 @@ export default function TerminalCanvas({
             </div>
 
             <div className="terminal-body">
-              <div className="chat-block chat-block-user" style={fontSizeStyle}>
-                <div className="chat-icon user">{USER_MARK}</div>
-                <div className="chat-copy chat-copy-user">
-                  <span className="user-highlight">{textOrPlaceholder(userText)}</span>
+              {hasUserText && (
+                <div className="chat-block chat-block-user" style={fontSizeStyle}>
+                  <div className="chat-icon user">{USER_MARK}</div>
+                  <div className="chat-copy chat-copy-user">
+                    <span className="user-highlight">{userText}</span>
+                  </div>
                 </div>
-              </div>
+              )}
 
               <div className="chat-block chat-block-claude" style={fontSizeStyle}>
                 <div className="chat-icon claude">{CLAUDE_MARK}</div>
@@ -51,8 +56,11 @@ export default function TerminalCanvas({
 
               <div className="composer">
                 <div className="composer-line" />
-                <div className="composer-row">
+                <div className="composer-row" style={fontSizeStyle}>
                   <div className="composer-prompt">{USER_MARK}</div>
+                  {hasComposerText && (
+                    <div className="composer-text">{composerText}</div>
+                  )}
                   <div className="composer-caret" />
                 </div>
                 <div className="composer-line" />

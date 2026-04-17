@@ -54,6 +54,19 @@ export default function EditorPanel({ state, onChange, onDownload, onReset }) {
             placeholder="type the response..."
           />
         </div>
+
+        <div className="editor-section">
+          <label className="editor-label" htmlFor="composer-text">
+            Composer input
+          </label>
+          <AutoResizeTextarea
+            id="composer-text"
+            className="editor-textarea"
+            value={state.composerText}
+            onChange={(event) => onChange("composerText", event.target.value)}
+            placeholder="leave empty for an idle caret..."
+          />
+        </div>
       </section>
 
       <section className="editor-card">
