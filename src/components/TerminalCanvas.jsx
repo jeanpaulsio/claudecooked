@@ -58,10 +58,11 @@ export default function TerminalCanvas({
                 <div className="composer-line" />
                 <div className="composer-row" style={fontSizeStyle}>
                   <div className="composer-prompt">{USER_MARK}</div>
-                  {hasComposerText && (
+                  {hasComposerText ? (
                     <div className="composer-text">{composerText}</div>
+                  ) : (
+                    <div className="composer-caret" />
                   )}
-                  <div className="composer-caret" />
                 </div>
                 <div className="composer-line" />
                 <div className="footer-bar">
